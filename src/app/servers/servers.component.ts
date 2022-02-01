@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
   <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
   <p>Input value for: {{serverName}}</p>
   <p>{{ serverCreationStatus }}</p>
-  <p *ngIf="serverCreated">Server name generation using directive: {{serverName}}. This creates the new DOM element not having an empty element and then filling it</p>`,
+  <p *ngIf="serverCreated; else noServer">Server name generation using directive: {{serverName}}. This creates the new DOM element not having an empty element and then filling it</p>
+  <ng-template #noServer>
+    <p>No server created</p>
+  </ng-template>`,
   styleUrls: ['./servers.component.css']
 })
 

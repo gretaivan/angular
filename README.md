@@ -30,6 +30,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 + Property binding - variables 
 + Event binding
 + Two way binding - variable and event manipulation combined 
++ Directives - intructions for the DOM. E.g. For example it allow creation of new elements in DOM depending on the trigger. components are also directives
+    + *ngIf - structural directive, they add and remove elements
+    + Attribute directives don't add or remove elements, they only change the element they are placed on, such as: 
+        + [ngStyle]="{ method or css expression}" 
 
 [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
