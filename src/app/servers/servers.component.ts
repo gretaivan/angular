@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   <input type="text" id="name" class="form-control" [(ngModel)]="serverName">
   <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
   <p>Input value for: {{serverName}}</p>
-  <p>{{ serverCreationStatus }}</p>`,
+  <p>{{ serverCreationStatus }}</p>
+  <p *ngIf="serverCreated">Server name generation using directive: {{serverName}}. This creates the new DOM element not having an empty element and then filling it</p>`,
   styleUrls: ['./servers.component.css']
 })
 
@@ -18,7 +19,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server was created'; 
   serverName ='';
-
+  serverCreated = false;
 
   constructor() { 
     setTimeout(() => {
@@ -31,6 +32,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer () {
     this.serverCreationStatus = 'Server ' + this.serverName + ' was created!'; 
+    this.serverCreated = true;
   }
 
   onUpdateServerName (event: Event) {
